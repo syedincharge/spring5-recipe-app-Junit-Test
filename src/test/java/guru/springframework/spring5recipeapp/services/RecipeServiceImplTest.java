@@ -7,9 +7,11 @@ import org.junit.Test;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
+import java.util.HashSet;
 import java.util.Set;
 
 import static org.junit.Assert.*;
+import static org.mockito.Mockito.*;
 
 public class RecipeServiceImplTest {
 
@@ -29,8 +31,15 @@ public class RecipeServiceImplTest {
 
     @Test
     public void getRecipes() {
+        Recipe recipe = new Recipe();
+        HashSet recipeData = new HashSet<>();
+        recipeData.add(recipe);
+        when(recipeService.getRecipes()).thenReturn(recipeData);
+
         Set<Recipe> recipies = recipeService.getRecipes();
 
-        assertEquals(recipies.size(), 0);
+        assertEquals(recipies.size(), 1);
+
+        verify(recipeRepository, times(3)).findAll();
     }
 }

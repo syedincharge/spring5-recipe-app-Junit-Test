@@ -20,7 +20,7 @@ public class RecipeServiceImpl implements RecipeService {
     public RecipeServiceImpl(RecipeRepository recipeRepository) {
         this.recipeRepository = recipeRepository;
     }
-    //   private final RecipeCommandToRecipe recipeCommandToRecipe;
+//    private final RecipeCommandToRecipe recipeCommandToRecipe;
 //    private final RecipeToRecipeCommand recipeToRecipeCommand;
 
 //    @Autowired
