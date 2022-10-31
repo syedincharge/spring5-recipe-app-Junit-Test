@@ -27,17 +27,17 @@ public class RecipeController {
         return "recipeForm";
     }
 
-//    @RequestMapping("/update/{id}")
-//    public String updateRecipe(@PathVariable String id,Model model) {
-//        model.addAttribute("recipe",recipeService.findCommandById(Long.valueOf(id)));
-//        return "recipeForm";
-//    }
-//
-//    @PostMapping("recipe")
-//    public String saveOrUpdate(@ModelAttribute RecipeCommand command) {
-//        RecipeCommand savedCommand=recipeService.saveRecipeCommand(command);
-//        return "redirect:/recipeShow/"+savedCommand.getId();
-//    }
+    @RequestMapping("/update/{id}")
+    public String updateRecipe(@PathVariable String id,Model model) {
+        model.addAttribute("recipe",recipeService.findCommandById(Long.valueOf(id)));
+        return "recipeForm";
+    }
+
+    @PostMapping("recipe")
+    public String saveOrUpdate(@ModelAttribute RecipeCommand command) {
+        RecipeCommand savedCommand=recipeService.saveRecipeCommand(command);
+        return "redirect:/recipeShow/"+savedCommand.getId();
+    }
 
     @RequestMapping("/recipe/delete/{id}")
     public String deleteById(@PathVariable String id) {
